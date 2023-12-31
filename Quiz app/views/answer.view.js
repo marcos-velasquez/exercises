@@ -1,8 +1,10 @@
 export class AnswerView {
+  #answerListElement = document.querySelector("#answers");
   constructor(index, answer) {
     this.index = index;
     this.answer = answer;
   }
+
   getElement() {
     return `          
         <li class="flex items-center gap-2">
@@ -17,5 +19,9 @@ export class AnswerView {
           ${this.answer}
         </label>
       </li>`;
+  }
+
+  interact() {
+    this.#answerListElement.innerHTML += this.getElement();
   }
 }

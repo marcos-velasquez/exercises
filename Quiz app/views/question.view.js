@@ -12,8 +12,7 @@ export class QuestionView {
     this.#questionElement.innerHTML = this.quiz.getQuestion();
     this.#answerListElement.innerHTML = "";
     this.quiz.getOptions().forEach((answer, index) => {
-      const answerView = new AnswerView(index, answer);
-      this.#answerListElement.innerHTML += answerView.getElement();
+      new AnswerView(index, answer).interact();
     });
   }
 }
