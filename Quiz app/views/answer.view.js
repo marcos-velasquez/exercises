@@ -5,7 +5,11 @@ export class AnswerView {
     this.answer = answer;
   }
 
-  getElement() {
+  interact() {
+    this.#answerListElement.innerHTML += this.#getElement();
+  }
+
+  #getElement() {
     return `          
         <li class="flex items-center gap-2">
         <input
@@ -19,9 +23,5 @@ export class AnswerView {
           ${this.answer}
         </label>
       </li>`;
-  }
-
-  interact() {
-    this.#answerListElement.innerHTML += this.getElement();
   }
 }
