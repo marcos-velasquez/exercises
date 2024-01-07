@@ -9,6 +9,7 @@ export class BoardView {
   }
 
   interact() {
+    document.getElementById("cardList").innerHTML = "";
     this.boardController.getCards().forEach((card, index) => {
       const cardView = new CardView(card, index);
       cardView.interact();

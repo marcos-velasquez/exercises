@@ -4,8 +4,6 @@ import { Card } from "./models/card.model.js";
 import { Board } from "./models/board.model.js";
 
 const play = () => {
-  document.getElementById("cardList").innerHTML = "";
-  document.getElementById("restartBtn").classList.remove("visible");
   const cards = [];
   cards.push(new Card("circle", "./assets/images/circle.svg"));
   cards.push(new Card("square", "./assets/images/square.svg"));
@@ -18,4 +16,8 @@ const play = () => {
 };
 
 window.addEventListener("load", () => play());
-document.getElementById("restartBtn").addEventListener("click", () => play());
+
+document.getElementById("restartBtn").addEventListener("click", (event) => {
+  event.target.classList.remove("visible");
+  play();
+});
