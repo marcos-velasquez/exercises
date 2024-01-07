@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.disabled {
+  pointer-events: none;
+}
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  perspective: 1000px;
+}
+
+.memory-card {
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.visible {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  cursor: pointer;
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: blue;
+  backface-visibility: hidden;
+}
+
+.memory-game-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.btn-reset {
+  display: none;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-reset.visible {
+  display: block;
+}
+
+.btn-reset:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
