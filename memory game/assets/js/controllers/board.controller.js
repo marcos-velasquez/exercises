@@ -28,6 +28,10 @@ export class BoardController {
     return this.board.isComplete();
   }
 
+  complete(index) {
+    this.board.complete(this.#openedCardIndex, index);
+  }
+
   validate(index) {
     return this.board.validate(this.#openedCardIndex, index);
   }

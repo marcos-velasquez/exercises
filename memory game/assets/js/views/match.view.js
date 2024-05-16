@@ -10,7 +10,10 @@ export class MatchView {
   interact(cardView, openedCardView) {
     new Body().disabled();
     new Timer(1000).run().then(() => {
-      if (!this.boardController.validate(cardView.getIndex())) {
+      const cardIndex = cardView.getIndex();
+      if (this.boardController.validate(cardIndex)) {
+        this.boardController.complete(cardIndex);
+      } else {
         cardView.close();
         openedCardView.close();
       }

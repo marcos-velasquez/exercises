@@ -13,12 +13,12 @@ export class Board {
     return this.cards.every((card) => card.isComplete());
   }
 
+  complete(origin, target) {
+    this.cards[origin].complete();
+    this.cards[target].complete();
+  }
+
   validate(origin, target) {
-    const valid = this.cards[origin].isEqual(this.cards[target]);
-    if (valid) {
-      this.cards[origin].complete();
-      this.cards[target].complete();
-    }
-    return valid;
+    return this.cards[origin].isEqual(this.cards[target]);
   }
 }
