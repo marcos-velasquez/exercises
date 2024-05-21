@@ -13,16 +13,16 @@ describe('AspectRatioCalculator', () => {
         { dimension: new Dimension(480, 640), expected: '3:4' },
         { dimension: new Dimension(640, 360), expected: '16:9' },
         { dimension: new Dimension(360, 640), expected: '9:16' },
-    ])('should calculate aspect ratio when dimension is $dimension', async ({ dimension, expected }) => {
+    ])('should calculate the aspect ratio given a dimension of $dimension', async ({ dimension, expected }) => {
         const url = new URLBuilder().withDimension(dimension).build();
-        const fetcher = { fetch: () => Promise.resolve(dimension) };
-        const aspectRatio = await new AspectRatioCalculator(fetcher).calculate(url);
+        const urlFetcher = { fetch: () => Promise.resolve(dimension) };
+        const aspectRatio = await new AspectRatioCalculator(urlFetcher).calculate(url);
         expect(aspectRatio).toBe(expected);
     });
 
     it('should throw an error if the url is empty', async () => {
         const url = '';
-        const fetcher = { fetch: () => Promise.resolve(new Dimension(1920, 1080)) };
-        await expect(new AspectRatioCalculator(fetcher).calculate(url)).rejects.toThrow();
+        const urlFetcher = { fetch: () => Promise.resolve(new Dimension(1920, 1080)) };
+        await expect(new AspectRatioCalculator(urlFetcher).calculate(url)).rejects.toThrow();
     });
 });
