@@ -5,9 +5,12 @@ describe('Expression', () => {
         expect(() => new Expression(value)).not.toThrow();
     });
 
-    it.each(['2+2a', '1+1+', '-3+3', ''])('should return a error if the expression %s is invalid', (value) => {
-        expect(() => new Expression(value)).toThrow();
-    });
+    it.each(['2+2a', '1+1+', '-3+3', ''])(
+        'should return a error message "no se han podido resolver las operaciones" if the expression %s is invalid',
+        (value) => {
+            expect(() => new Expression(value)).toThrow('no se han podido resolver las operaciones');
+        }
+    );
 
     it.each([
         ['2+2', 4],

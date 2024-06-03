@@ -2,7 +2,7 @@ import assert from 'assert';
 
 export class Expression {
     constructor(public readonly value: string) {
-        assert(this.validate(), 'Invalid expression');
+        assert(this.validate(), 'no se han podido resolver las operaciones');
     }
 
     public evaluate(): number {
