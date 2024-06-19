@@ -1,0 +1,58 @@
+@startuml "The Rings of Power"
+
+class Race {
+    - name: String
+    - value: int <<Range: 1-5>>
+}
+
+class EvilRace {}
+class BadSoutherner {}
+class Orc {}
+class Goblin {}
+class Huargo {}
+class Troll {}
+
+class KindRace {}
+class Peloso {}
+class GoodSoutherner {}
+class Dwarf {}
+class Numenorean {}
+class Elf {}
+
+class Army {
+    - type: String
+    - members: Map<Race, Integer>
+    + getTotalValue(): int
+}
+
+class Battle {
+    - armies: List<Army>
+    + calculate(): Result
+} 
+
+Result -left- Battle  : return 
+
+enum Result {
+    GoodWin
+    EvilWin
+    Draw
+}
+
+Army "1" o-- "*" Race : contains
+Battle o-- "*" Army : participates
+
+Race <|-- EvilRace
+EvilRace <|-- BadSoutherner
+EvilRace <|-- Orc
+EvilRace <|-- Goblin
+EvilRace <|-- Huargo
+EvilRace <|-- Troll
+
+Race <|-- KindRace
+KindRace <|-- Peloso
+KindRace <|-- GoodSoutherner
+KindRace <|-- Dwarf
+KindRace <|-- Numenorean
+KindRace <|-- Elf
+
+@enduml
