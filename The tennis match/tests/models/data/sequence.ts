@@ -1,0 +1,53 @@
+export const sequence = [
+    {
+        sequence: ['player1', 'player1', 'player1', 'player1'],
+        expected: [
+            ['love', 'love'],
+            ['15', 'love'],
+            ['30', 'love'],
+            ['40', 'love'],
+            ['win', 'love'],
+        ],
+    },
+    {
+        sequence: ['player1', 'player1', 'player1', 'player2', 'player2', 'player2', 'player1', 'player1'],
+        expected: [
+            ['love', 'love'],
+            ['15', 'love'],
+            ['30', 'love'],
+            ['40', 'love'],
+            ['40', '15'],
+            ['40', '30'],
+            ['deuce', 'deuce'],
+            ['advantage', 'deuce'],
+            ['win', 'deuce'],
+        ],
+    },
+    {
+        sequence: [
+            'player1',
+            'player1',
+            'player1',
+            'player2',
+            'player2',
+            'player2',
+            'player1',
+            'player2',
+            'player2',
+            'player2',
+        ],
+        expected: [
+            ['love', 'love'],
+            ['15', 'love'],
+            ['30', 'love'],
+            ['40', 'love'],
+            ['40', '15'],
+            ['40', '30'],
+            ['deuce', 'deuce'],
+            ['advantage', 'deuce'],
+            ['deuce', 'deuce'],
+            ['deuce', 'advantage'],
+            ['deuce', 'win'],
+        ],
+    },
+];

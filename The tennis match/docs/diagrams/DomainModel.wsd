@@ -1,0 +1,26 @@
+@startuml The tennis match
+
+class Tennis {}
+
+class Player {}
+
+class Result {
+    +player (Winner)
+    +history (List<Score, Score>)
+}
+
+class Sequence {}
+
+class Score {}
+class Love extends Score {}
+class 15 extends Score {}
+class 30 extends Score {}
+class 40 extends Score {}
+class Deuce extends Score {}
+class Advantage extends Score {}
+
+Tennis --> Sequence
+Sequence o-- Player
+Player *-- Score
+Tennis -right- Result: return
+@enduml
