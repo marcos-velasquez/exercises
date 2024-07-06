@@ -1,0 +1,20 @@
+@startuml The sorting hat
+
+class SortingHat {}
+
+class Question {}
+
+class Answer {}
+
+class House {}
+class Gryffindor extends House {}
+class Slytherin extends House {}
+class Hufflepuff extends House {}
+class Ravenclaw extends House {}
+
+Question *-- "4" Answer
+Answer -- House
+SortingHat o-- "5.." Question
+
+
+@enduml
